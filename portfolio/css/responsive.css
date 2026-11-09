@@ -1,0 +1,54 @@
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* Compact navigation */
+@media (max-width: 1080px) {
+  .nav__links { display: none; }
+  .nav__burger { display: grid; }
+}
+
+/* Tablets and phones: the ID card hangs first, the text follows below */
+@media (max-width: 900px) {
+  :root { --nav-height: 64px; }
+
+  .hero, .hero--card-right { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-bottom: 72px; }
+  .hero__card-zone { order: 0 !important; min-height: 0; height: clamp(520px, 78svh, 680px); }
+  .hero__content { justify-items: center; text-align: center; }
+  .hero__cta { justify-content: center; }
+  .scroll-cue { display: none; }
+  .id-card { --card-w: clamp(200px, 60vw, 280px); }
+
+  .about, .contact { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Phones */
+@media (max-width: 560px) {
+  .section-head__sub { font-size: 1rem; }
+  .hero__title { font-size: clamp(2.1rem, 9.4vw, 2.6rem); }
+  .hero__role span { display: none; }
+  .hero__role { display: grid; gap: 2px; }
+  .hero__cta { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .hero__cta .btn:first-child { grid-column: 1 / -1; }
+
+  .skill-grid { gap: 12px; }
+  .skill { flex: 0 1 calc(50% - 6px); }
+  .project-grid, .cert-grid { grid-template-columns: minmax(0, 1fr); }
+  .detail__grid { grid-template-columns: minmax(0, 1fr); }
+  .interests__grid { grid-template-columns: minmax(0, 1fr); }
+
+  .timeline::before { left: 17px; }
+  .timeline__item { grid-template-columns: 36px minmax(0, 1fr); gap: 14px; }
+  .timeline__dot { width: 36px; height: 36px; }
+  .timeline__card { padding: 18px; }
+
+  .footer__inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 900px) {
+  .about__photo { position: static; max-width: 460px; width: 100%; margin-inline: auto; order: -1; }
+  .honors { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .quick-facts { grid-template-columns: minmax(0, 1fr); }
+}

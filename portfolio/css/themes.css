@@ -1,0 +1,111 @@
+/* ==========================================================================
+   THEMES
+   Every color on the site comes from these variables.
+   Light values sit on :root. The two dark blocks redefine the same names.
+   Keep both dark blocks identical.
+   ========================================================================== */
+
+:root {
+  /* Brand palette */
+  --navy: #172B4D;
+  --deep-navy: #0B1730;
+  --royal: #2563EB;
+  --white: #FFFFFF;
+  --off-white: #F5F7FA;
+  --slate: #64748B;
+  --light-gray: #E2E8F0;
+
+  /* Light mode */
+  --bg: var(--off-white);
+  --surface: rgba(255, 255, 255, .78);
+  --surface-solid: var(--white);
+  --surface-hover: var(--white);
+  --tile: #E8EFFD;
+  --text: var(--navy);
+  --muted: #55657B;
+  --accent: var(--royal);
+  --accent-soft: #1D4ED8;
+  --grad-a: var(--royal);
+  --grad-b: #0EA5E9;
+  --border: #DCE3EE;
+  --border-strong: #C3D0E4;
+  --shadow: 0 18px 40px -26px rgba(23, 43, 77, .35);
+  --glow-1: rgba(37, 99, 235, .16);
+  --glow-2: rgba(14, 165, 233, .12);
+  --glow-3: rgba(23, 43, 77, .08);
+  --overlay: rgba(11, 23, 48, .55);
+
+  /* Placeholders (only visible until you add your own content) */
+  --ph-text: #1D4FBF;
+  --ph-bg: #E6EEFD;
+  --ph-line: #8FB0F5;
+
+  /* Project cover art */
+  --cover-a: var(--navy);
+  --cover-b: #8FB0F5;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--deep-navy);
+    --surface: rgba(23, 43, 77, .45);
+    --surface-solid: #111F3D;
+    --surface-hover: rgba(30, 55, 99, .6);
+    --tile: rgba(37, 99, 235, .16);
+    --text: #EEF2F8;
+    --muted: #A9B6C9;
+    --accent: #60A5FA;
+    --accent-soft: #93C5FD;
+    --grad-a: #3B82F6;
+    --grad-b: #7DD3FC;
+    --border: rgba(148, 163, 184, .16);
+    --border-strong: rgba(148, 163, 184, .3);
+    --shadow: 0 18px 40px -26px rgba(0, 0, 0, .9);
+    --glow-1: rgba(37, 99, 235, .28);
+    --glow-2: rgba(56, 189, 248, .12);
+    --glow-3: rgba(99, 102, 241, .14);
+    --overlay: rgba(4, 10, 24, .72);
+    --ph-text: #BBD0FB;
+    --ph-bg: #1A2F58;
+    --ph-line: #4F76C4;
+    --cover-a: #13254A;
+    --cover-b: #7FA3F0;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: var(--deep-navy);
+  --surface: rgba(23, 43, 77, .45);
+  --surface-solid: #111F3D;
+  --surface-hover: rgba(30, 55, 99, .6);
+  --tile: rgba(37, 99, 235, .16);
+  --text: #EEF2F8;
+  --muted: #A9B6C9;
+  --accent: #60A5FA;
+  --accent-soft: #93C5FD;
+  --grad-a: #3B82F6;
+  --grad-b: #7DD3FC;
+  --border: rgba(148, 163, 184, .16);
+  --border-strong: rgba(148, 163, 184, .3);
+  --shadow: 0 18px 40px -26px rgba(0, 0, 0, .9);
+  --glow-1: rgba(37, 99, 235, .28);
+  --glow-2: rgba(56, 189, 248, .12);
+  --glow-3: rgba(99, 102, 241, .14);
+  --overlay: rgba(4, 10, 24, .72);
+  --ph-text: #BBD0FB;
+  --ph-bg: #1A2F58;
+  --ph-line: #4F76C4;
+  --cover-a: #13254A;
+  --cover-b: #7FA3F0;
+  color-scheme: dark;
+}
+
+/* The circular theme wipe. It starts from the toggle button (see js/theme.js). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}

@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Jermaine Mae C. Noquera Portfolio</title>
+  <meta name="description" content="Portfolio of Jermaine Mae C. Noquera, a Computer Science student and aspiring developer.">
+  <meta name="theme-color" content="#0B1730">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/images/profile.webp" as="image">
+
+  <!-- Runs before the page paints, so the saved theme never flickers. -->
+  <script>
+    (function () {
+      var root = document.documentElement, saved = null;
+      root.classList.add('js');
+      try { saved = localStorage.getItem('portfolio-theme'); } catch (e) {}
+      var dark = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+      root.setAttribute('data-theme', saved === 'dark' || saved === 'light' ? saved : (dark ? 'dark' : 'light'));
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Soft background glows -->
+  <div class="glow" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" aria-hidden="true">
+    <p class="logo">Jermaine<span>.</span></p>
+    <div class="preloader__bar"><span></span></div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="nav" id="nav">
+    <a class="logo" href="#home" aria-label="Jermaine, back to top">Jermaine<span>.</span></a>
+
+    <nav class="nav__links" aria-label="Main">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav__actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">
+        <i data-lucide="sun" aria-hidden="true"></i>
+        <i data-lucide="moon" aria-hidden="true"></i>
+      </button>
+      <button class="icon-btn nav__burger" id="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <i data-lucide="menu" aria-hidden="true"></i>
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <main id="main">
+
+    <!-- ===== HERO ===== -->
+    <!-- The ID card sits on the left. To move it right, add the class "hero--card-right". -->
+    <section class="hero" id="home">
+      <div class="hero__card-zone">
+        <!-- The hanging ID card. Drag it to swing it (js/lanyard.js). -->
+        <div class="lanyard" id="lanyard">
+          <canvas class="lanyard__strap" aria-hidden="true"></canvas>
+          <div class="id-card" id="id-card" role="img" aria-label="ID card with a photo of Jermaine Mae C. Noquera. Drag it to swing it.">
+            <span class="id-card__clip" aria-hidden="true"></span>
+            <div class="id-card__face">
+              <div class="id-card__top">
+                <span class="id-card__brand">JMN</span>
+                <span class="id-card__tag">Computer Science</span>
+              </div>
+              <!-- To change your photo, replace assets/images/profile.webp -->
+              <img class="id-card__photo" src="assets/images/profile.webp" width="997" height="1328" alt="" draggable="false">
+              <div class="id-card__bottom">
+                <p class="id-card__script">Jermaine</p>
+                <p class="id-card__full">Jermaine Mae C. Noquera</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__content">
+        <p class="eyebrow" data-hero>Welcome to my portfolio</p>
+        <h1 class="hero__title" data-hero>Hi, I'm <span class="gradient-text">Jermaine Mae C. Noquera</span></h1>
+        <p class="hero__role" data-hero>Computer Science Student <span aria-hidden="true">|</span> Aspiring Developer <span aria-hidden="true">|</span> Creative Problem Solver</p>
+        <p class="hero__intro" data-hero>I'm a fourth-year Computer Science student at Biliran Province State University. I build mobile apps, websites and programming projects, and I'm looking for OJT and internship opportunities.</p>
+        <div class="hero__cta" data-hero>
+          <a class="btn btn--primary" href="#resume"><i data-lucide="file-text" aria-hidden="true"></i>View Resume</a>
+          <a class="btn btn--soft" data-config="social.github" data-name="GitHub" data-text><i data-lucide="github" aria-hidden="true"></i>GitHub</a>
+          <a class="btn btn--soft" data-config="social.facebook" data-name="Facebook" data-text><i data-lucide="facebook" aria-hidden="true"></i>Facebook</a>
+          <a class="btn btn--soft" href="#contact"><i data-lucide="mail" aria-hidden="true"></i>Contact Me</a>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#about" aria-label="Scroll to About"><span></span></a>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Get to know me</p>
+          <h2>About Me</h2>
+          <p class="section-head__sub">A little about my background, my studies and what I do outside of code.</p>
+        </header>
+
+        <div class="about">
+          <div class="about__story" data-reveal>
+            <p>I'm Jermaine Mae C. Noquera, a fourth-year Computer Science student at Biliran Province State University (BiPSU) from Naval, Biliran. I build mobile apps, websites and programming projects.</p>
+            <p>I serve as President of the School of Technology and Computer Studies Supreme Student Council for 2026–2027. I also edit videos and design pubmats.</p>
+            <p><span class="ph">Add your interests, career goals and the idea that guides how you work.</span></p>
+
+            <ul class="quick-facts">
+              <li><span class="tile-icon"><i data-lucide="map-pin" aria-hidden="true"></i></span>Naval, Biliran, Philippines</li>
+              <li><span class="tile-icon"><i data-lucide="graduation-cap" aria-hidden="true"></i></span>4th-year Computer Science, BiPSU</li>
+              <li><span class="tile-icon"><i data-lucide="users" aria-hidden="true"></i></span>STCS-SSC President, 2026–2027</li>
+              <li><span class="tile-icon"><i data-lucide="clapperboard" aria-hidden="true"></i></span>Video and pubmat editor</li>
+            </ul>
+
+            <h3 class="mini-title"><i data-lucide="school" aria-hidden="true"></i>Education</h3>
+            <!-- EDIT: copy an .edu-card to add a school. -->
+            <div class="edu-list">
+              <article class="edu-card">
+                <span class="tile-icon"><i data-lucide="graduation-cap" aria-hidden="true"></i></span>
+                <div>
+                  <h3>Biliran Province State University</h3>
+                  <p>Tertiary · Computer Science, 4th year</p>
+                </div>
+              </article>
+              <article class="edu-card">
+                <span class="tile-icon"><i data-lucide="book-open" aria-hidden="true"></i></span>
+                <div>
+                  <h3>Lucsoon National High School</h3>
+                  <p>Secondary · Brgy. Lucsoon, Naval, Biliran · 2022–2023</p>
+                </div>
+              </article>
+              <article class="edu-card">
+                <span class="tile-icon"><i data-lucide="pencil" aria-hidden="true"></i></span>
+                <div>
+                  <h3>Lucsoon Elementary School</h3>
+                  <p>Elementary · Brgy. Lucsoon, Naval, Biliran · 2016–2017</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <figure class="about__photo" data-reveal>
+            <img src="assets/images/speaking-pillar.webp" width="900" height="1125" loading="lazy"
+                 alt="Jermaine speaking at a podium during a school event">
+            <figcaption>Photo: The Pillar Publication</figcaption>
+          </figure>
+        </div>
+
+        <!-- EDIT: photos live in assets/images/. Copy a <figure> to add one. -->
+        <div class="life" data-reveal>
+          <h3 class="mini-title"><i data-lucide="camera" aria-hidden="true"></i>Beyond the classroom</h3>
+          <div class="life__grid">
+            <figure><img src="assets/images/life-paddleboard.webp" width="900" height="1200" loading="lazy" alt="Jermaine paddleboarding toward a green, mountainous shore"><figcaption>Paddleboarding</figcaption></figure>
+            <figure><img src="assets/images/life-church.webp" width="900" height="1200" loading="lazy" alt="Jermaine standing in front of an old stone church"><figcaption>Visiting a heritage church</figcaption></figure>
+            <figure><img src="assets/images/life-camping.webp" width="900" height="780" loading="lazy" alt="Jermaine smiling inside a tent on a pebble beach"><figcaption>Beach camping</figcaption></figure>
+            <figure><img src="assets/images/life-waterfall.webp" width="900" height="1200" loading="lazy" alt="Jermaine standing on a rock beneath a tall waterfall"><figcaption>Chasing waterfalls</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="section" id="skills">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">What I work with</p>
+          <h2>Skills &amp; Technologies</h2>
+          <p class="section-head__sub">Languages, frameworks and tools I use and keep learning.</p>
+          <p class="section-head__note"><span class="ph">The technical skills are still the example list from your brief. Remove anything you don't use, then delete this note.</span></p>
+        </header>
+
+        <div class="filters" role="group" aria-label="Filter skills" data-reveal>
+          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter" data-filter="frontend" aria-pressed="false">Frontend</button>
+          <button type="button" class="filter" data-filter="backend" aria-pressed="false">Backend</button>
+          <button type="button" class="filter" data-filter="database" aria-pressed="false">Database</button>
+          <button type="button" class="filter" data-filter="programming" aria-pressed="false">Programming</button>
+          <button type="button" class="filter" data-filter="tools" aria-pressed="false">Tools</button>
+          <button type="button" class="filter" data-filter="creative" aria-pressed="false">Creative</button>
+        </div>
+
+        <!-- EDIT: to add a skill, copy one <li>. Put its SVG logo in assets/icons/. -->
+        <ul class="skill-grid" id="skill-grid">
+          <li class="skill" data-category="frontend"><span class="skill__icon"><img src="assets/icons/html5.svg" alt="" width="24" height="24"></span><h3>HTML</h3><p>Frontend</p></li>
+          <li class="skill" data-category="frontend"><span class="skill__icon"><img src="assets/icons/css3.svg" alt="" width="24" height="24"></span><h3>CSS</h3><p>Frontend</p></li>
+          <li class="skill" data-category="frontend"><span class="skill__icon"><img src="assets/icons/javascript.svg" alt="" width="24" height="24"></span><h3>JavaScript</h3><p>Frontend</p></li>
+          <li class="skill" data-category="backend"><span class="skill__icon"><img src="assets/icons/python.svg" alt="" width="24" height="24"></span><h3>Python</h3><p>Backend</p></li>
+          <li class="skill" data-category="backend"><span class="skill__icon"><img src="assets/icons/django.svg" alt="" width="24" height="24"></span><h3>Django</h3><p>Backend</p></li>
+          <li class="skill" data-category="backend"><span class="skill__icon"><img src="assets/icons/php.svg" alt="" width="24" height="24"></span><h3>PHP</h3><p>Backend</p></li>
+          <li class="skill" data-category="database"><span class="skill__icon"><img src="assets/icons/mysql.svg" alt="" width="24" height="24"></span><h3>MySQL</h3><p>Database</p></li>
+          <li class="skill" data-category="programming"><span class="skill__icon"><img src="assets/icons/openjdk.svg" alt="" width="24" height="24"></span><h3>Java</h3><p>Programming</p></li>
+          <li class="skill" data-category="programming"><span class="skill__icon"><img src="assets/icons/dart.svg" alt="" width="24" height="24"></span><h3>Dart</h3><p>Programming</p></li>
+          <li class="skill" data-category="tools"><span class="skill__icon"><img src="assets/icons/git.svg" alt="" width="24" height="24"></span><h3>Git</h3><p>Tools</p></li>
+          <li class="skill" data-category="tools"><span class="skill__icon"><img src="assets/icons/github.svg" alt="" width="24" height="24"></span><h3>GitHub</h3><p>Tools</p></li>
+          <li class="skill" data-category="tools"><span class="skill__icon skill__icon--lucide"><i data-lucide="code-xml" aria-hidden="true"></i></span><h3>VS Code</h3><p>Tools</p></li>
+          <li class="skill" data-category="tools"><span class="skill__icon"><img src="assets/icons/figma.svg" alt="" width="24" height="24"></span><h3>Figma</h3><p>Tools</p></li>
+          <li class="skill" data-category="creative"><span class="skill__icon skill__icon--lucide"><i data-lucide="clapperboard" aria-hidden="true"></i></span><h3>Video Editing</h3><p>Creative</p></li>
+          <li class="skill" data-category="creative"><span class="skill__icon skill__icon--lucide"><i data-lucide="image" aria-hidden="true"></i></span><h3>Pubmat Design</h3><p>Creative</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section" id="projects">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Selected work</p>
+          <h2>Projects</h2>
+          <p class="section-head__sub">Mobile apps and systems I've built. Open a project to see the full story.</p>
+        </header>
+
+        <div class="project-grid">
+          <!-- EDIT: each card opens the matching detail page below (data-open="detail-id"). -->
+          <article class="project-card" data-reveal>
+            <button class="project-card__open" type="button" data-open="detail-readsync" aria-label="Open ReadSync details"></button>
+            <div class="cover cover--phones">
+              <span class="cover__chip">Mobile Application</span>
+              <img src="assets/projects/readsync-welcome.webp" width="546" height="1053" loading="lazy" alt="ReadSync welcome screen">
+              <img src="assets/projects/readsync-library.webp" width="546" height="1053" loading="lazy" alt="ReadSync passage library">
+            </div>
+            <div class="project-card__body">
+              <h3>ReadSync</h3>
+              <p>A Vosk-based mobile application for oral reading fluency and literacy comprehension assessment.</p>
+              <ul class="tags"><li>Vosk</li><li class="ph">Add the rest</li></ul>
+              <span class="link-arrow">View details <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <button class="project-card__open" type="button" data-open="detail-tubig" aria-label="Open Tubig Tracker details"></button>
+            <div class="cover">
+              <span class="cover__chip">Reporting System</span>
+              <img src="assets/projects/tubig-devices.webp" width="1080" height="430" loading="lazy" alt="Tubig Tracker login screen on two laptops and a phone">
+            </div>
+            <div class="project-card__body">
+              <h3>Tubig Tracker</h3>
+              <p>A water issue reporting and monitoring system designed to help residents report water-related concerns.</p>
+              <ul class="tags"><li class="ph">Add technologies used</li></ul>
+              <span class="link-arrow">View details <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <button class="project-card__open" type="button" data-open="detail-caretrack" aria-label="Open CareTrack Community details"></button>
+            <div class="cover cover--top">
+              <span class="cover__chip">Medication Tracking</span>
+              <img src="assets/projects/caretrack-cover.webp" width="1440" height="900" loading="lazy" alt="CareTrack Community dashboard">
+            </div>
+            <div class="project-card__body">
+              <h3>CareTrack Community</h3>
+              <p>A record-keeping app that helps patients track their medications, scheduled doses and adherence over time.</p>
+              <ul class="tags"><li class="ph">Add technologies used</li></ul>
+              <span class="link-arrow">View details <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== JOURNEY TIMELINE ===== -->
+    <section class="section" id="experience">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">My path so far</p>
+          <h2>Journey Timeline</h2>
+          <p class="section-head__sub">My leadership roles, education and achievements.</p>
+        </header>
+
+        <!-- EDIT: one <li> per milestone, newest first. -->
+        <ol class="timeline">
+          <li class="timeline__item" data-reveal>
+            <span class="timeline__dot"><i data-lucide="crown" aria-hidden="true"></i></span>
+            <article class="timeline__card">
+              <p class="timeline__date">2026–2027</p>
+              <h3>President</h3>
+              <p class="timeline__place">STCS Supreme Student Council, Biliran Province State University</p>
+              <figure class="timeline__photo">
+                <img src="assets/images/speaking-ssc.webp" width="1070" height="800" loading="lazy" alt="Jermaine speaking at the Biliran Province State University podium">
+                <figcaption>Photo: STCS Supreme Student Council</figcaption>
+              </figure>
+            </article>
+          </li>
+          <li class="timeline__item" data-reveal>
+            <span class="timeline__dot"><i data-lucide="wallet" aria-hidden="true"></i></span>
+            <article class="timeline__card">
+              <p class="timeline__date">2025–2026</p>
+              <h3>Treasurer</h3>
+              <p class="timeline__place">STCS Supreme Student Council, Biliran Province State University</p>
+            </article>
+          </li>
+          <li class="timeline__item" data-reveal>
+            <span class="timeline__dot"><i data-lucide="graduation-cap" aria-hidden="true"></i></span>
+            <article class="timeline__card">
+              <p class="timeline__date">Currently in 4th year</p>
+              <h3>Computer Science</h3>
+              <p class="timeline__place">Biliran Province State University</p>
+            </article>
+          </li>
+          <li class="timeline__item" data-reveal>
+            <span class="timeline__dot"><i data-lucide="book-open" aria-hidden="true"></i></span>
+            <article class="timeline__card">
+              <p class="timeline__date">2022–2023</p>
+              <h3>Secondary Education</h3>
+              <p class="timeline__place">Lucsoon National High School, Naval, Biliran</p>
+              <p>Grade 12 with honors.</p>
+            </article>
+          </li>
+          <li class="timeline__item" data-reveal>
+            <span class="timeline__dot"><i data-lucide="pencil" aria-hidden="true"></i></span>
+            <article class="timeline__card">
+              <p class="timeline__date">2016–2017</p>
+              <h3>Elementary Education</h3>
+              <p class="timeline__place">Lucsoon Elementary School, Naval, Biliran</p>
+              <p>Grade 6 special award.</p>
+            </article>
+          </li>
+        </ol>
+
+        <div class="honors">
+          <section class="panel" data-reveal>
+            <h3 class="mini-title"><i data-lucide="trophy" aria-hidden="true"></i>Achievements</h3>
+            <ul class="bullets">
+              <li>Grade 12 with honors</li>
+              <li>Grade 8 with honors</li>
+              <li>Grade 7 special award</li>
+              <li>Grade 6 special award</li>
+              <li>2nd place, DanceSport (2018)</li>
+            </ul>
+          </section>
+          <section class="panel" data-reveal>
+            <h3 class="mini-title"><i data-lucide="users" aria-hidden="true"></i>Organizations and Roles</h3>
+            <ul class="bullets">
+              <li>STCS-SSC President, 2026–2027</li>
+              <li>STCS-SSC Treasurer, 2025–2026</li>
+              <li>Science Society Organization, Peace Officer</li>
+              <li>Class Peace Officer, Grades 8 and 12</li>
+              <li>Class Treasurer, Grade 11</li>
+              <li>Supreme Student Government (SSG) member</li>
+              <li>Senior High Club member</li>
+              <li>Youth member, Lucsoon, Naval, Biliran</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATES ===== -->
+    <section class="section" id="certificates">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Proof of learning</p>
+          <h2>Certificates</h2>
+          <p class="section-head__sub">Courses I've completed. Select one to see it larger.</p>
+        </header>
+
+        <!-- EDIT: copy a <li> to add a certificate. Images go in assets/certificates/. -->
+        <ul class="cert-grid">
+          <li data-reveal>
+            <button class="cert" type="button" data-cert>
+              <span class="cert__thumb"><img src="assets/certificates/ai-literacy.webp" alt="Certificate of completion for Introduction to AI Literacy and Responsible Use" loading="lazy" width="727" height="515"></span>
+              <span class="cert__year"><i data-lucide="award" aria-hidden="true"></i>2026</span>
+              <span class="cert__title">Introduction to AI Literacy and Responsible Use</span>
+              <span class="cert__issuer">CHED ACHIEVE and Mapúa University</span>
+            </button>
+          </li>
+          <li data-reveal>
+            <button class="cert" type="button" data-cert>
+              <span class="cert__thumb"><img src="assets/certificates/networking-basics.webp" alt="Cisco Networking Academy certificate for Networking Basics" loading="lazy" width="750" height="501"></span>
+              <span class="cert__year"><i data-lucide="award" aria-hidden="true"></i>2026</span>
+              <span class="cert__title">Networking Basics</span>
+              <span class="cert__issuer">Cisco Networking Academy</span>
+            </button>
+          </li>
+          <li data-reveal>
+            <button class="cert" type="button" data-cert>
+              <span class="cert__thumb"><img src="assets/certificates/microsoft-ai-governance.webp" alt="Microsoft certificate for AI-Driven Governance on PostgreSQL and Microsoft Foundry" loading="lazy" width="1400" height="1056"></span>
+              <span class="cert__year"><i data-lucide="award" aria-hidden="true"></i>2025</span>
+              <span class="cert__title">AI-Driven Governance on PostgreSQL and Microsoft Foundry</span>
+              <span class="cert__issuer">Microsoft</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== RESUME ===== -->
+    <section class="section" id="resume">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Know me more</p>
+          <h2>Resume</h2>
+          <p class="section-head__sub">My background at a glance. Download the PDF to keep a copy.</p>
+          <div class="resume-actions">
+            <a class="btn btn--primary" data-config="cv" data-name="Download Resume" data-text data-download><i data-lucide="download" aria-hidden="true"></i>Download Resume (PDF)</a>
+          </div>
+        </header>
+
+        <!-- EDIT: keep this in step with assets/Jermaine-Noquera-Resume.pdf -->
+        <article class="resume-sheet" data-reveal aria-label="Resume of Jermaine Mae C. Noquera">
+          <aside class="resume-sheet__side">
+            <img class="resume-sheet__photo" src="assets/images/profile-formal.webp" width="580" height="558" loading="lazy" alt="Formal portrait of Jermaine Mae C. Noquera">
+
+            <h4>Contact</h4>
+            <ul class="resume-sheet__contact">
+              <li><span>Email</span>noquerajermainemae@gmail.com</li>
+              <li><span>Location</span>Lucsoon, Naval, Biliran</li>
+              <li><span>GitHub</span>github.com/jams950</li>
+            </ul>
+
+            <h4>Skills</h4>
+            <ul>
+              <li>Mobile app development</li>
+              <li>Web application development</li>
+              <li>Speech recognition with Vosk</li>
+              <li>Video editing</li>
+              <li>Pubmat design</li>
+              <li>Public speaking</li>
+              <li>Student leadership</li>
+            </ul>
+
+            <h4>Achievements</h4>
+            <ul>
+              <li>Grade 12 with honors</li>
+              <li>Grade 8 with honors</li>
+              <li>Grade 7 special award</li>
+              <li>Grade 6 special award</li>
+              <li>2nd place, DanceSport, 2018</li>
+            </ul>
+          </aside>
+
+          <div class="resume-sheet__main">
+            <h3 class="resume-sheet__name">Jermaine Mae C. Noquera</h3>
+            <p class="resume-sheet__role">Computer Science Student · Aspiring Developer</p>
+
+            <h4>Objective</h4>
+            <p>Fourth-year Computer Science student seeking an OJT or internship placement where I can apply my experience building mobile and web applications, contribute to a development team and keep growing as a developer.</p>
+
+            <h4>Education</h4>
+            <div class="resume-item"><p><b>Biliran Province State University</b><span>Current</span></p><p>Computer Science, 4th year</p></div>
+            <div class="resume-item"><p><b>Lucsoon National High School</b><span>2022–2023</span></p><p>Secondary · Graduated Grade 12 with honors</p></div>
+            <div class="resume-item"><p><b>Lucsoon Elementary School</b><span>2016–2017</span></p><p>Elementary · Grade 6 special award</p></div>
+
+            <h4>Leadership</h4>
+            <div class="resume-item"><p><b>President, STCS Supreme Student Council</b><span>2026–2027</span></p><p>School of Technology and Computer Studies, Biliran Province State University</p></div>
+            <div class="resume-item"><p><b>Treasurer, STCS Supreme Student Council</b><span>2025–2026</span></p><p>School of Technology and Computer Studies, Biliran Province State University</p></div>
+
+            <h4>Projects</h4>
+            <div class="resume-item"><p><b>ReadSync</b><span>Mobile application</span></p>
+              <ul><li>Vosk-based app for assessing oral reading fluency and literacy comprehension</li><li>Passages in Filipino and English matched to grade level, with instant fluency feedback and a final evaluation of accuracy, words per minute and reading level</li></ul></div>
+            <div class="resume-item"><p><b>Tubig Tracker</b><span>Reporting system</span></p>
+              <ul><li>Lets residents report water-related concerns, with photo uploading, location pinning and admin updates</li></ul></div>
+            <div class="resume-item"><p><b>CareTrack Community</b><span>Medication tracking</span></p>
+              <ul><li>Tracks medications, scheduled doses and adherence, with reminders and a 14-day adherence trend</li></ul></div>
+
+            <h4>Certifications</h4>
+            <ul>
+              <li>Introduction to AI Literacy and Responsible Use, CHED ACHIEVE and Mapúa University, Sep 2026</li>
+              <li>Networking Basics, Cisco Networking Academy, May 2026</li>
+              <li>AI-Driven Governance on PostgreSQL and Microsoft Foundry, Microsoft, Nov 2025</li>
+            </ul>
+
+            <h4>Organizations</h4>
+            <ul class="resume-sheet__cols">
+              <li>Science Society Organization, Peace Officer</li>
+              <li>Class Peace Officer, Grades 8 and 12</li>
+              <li>Class Treasurer, Grade 11</li>
+              <li>Supreme Student Government, Member</li>
+              <li>Senior High Club, Member</li>
+              <li>Youth of Lucsoon, Naval, Biliran, Member</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <p class="eyebrow">Let's connect</p>
+          <h2>Contact Me</h2>
+          <p class="section-head__sub">Have an OJT, internship or job opportunity? Send me a message.</p>
+        </header>
+
+        <div class="contact">
+          <ul class="contact__cards" data-reveal>
+            <li><a class="contact-card" data-config="email" data-name="Email" data-text data-card>
+              <span class="tile-icon"><i data-lucide="mail" aria-hidden="true"></i></span>
+              <span><span class="contact-card__label">Email</span><span class="contact-card__value">Add your email</span></span>
+            </a></li>
+            <li><div class="contact-card">
+              <span class="tile-icon"><i data-lucide="map-pin" aria-hidden="true"></i></span>
+              <span><span class="contact-card__label">Location</span><span class="contact-card__value">Naval, Biliran, Philippines</span></span>
+            </div></li>
+            <li><a class="contact-card" data-config="social.github" data-name="GitHub" data-text data-card>
+              <span class="tile-icon"><i data-lucide="github" aria-hidden="true"></i></span>
+              <span><span class="contact-card__label">GitHub</span><span class="contact-card__value">Add your GitHub</span></span>
+            </a></li>
+
+            <li><a class="contact-card" data-config="social.facebook" data-name="Facebook" data-text data-card>
+              <span class="tile-icon"><i data-lucide="facebook" aria-hidden="true"></i></span>
+              <span><span class="contact-card__label">Facebook</span><span class="contact-card__value">Add your Facebook</span></span>
+            </a></li>
+            <li><a class="contact-card" data-config="social.instagram" data-name="Instagram" data-text data-card>
+              <span class="tile-icon"><i data-lucide="instagram" aria-hidden="true"></i></span>
+              <span><span class="contact-card__label">Instagram</span><span class="contact-card__value">Add your Instagram</span></span>
+            </a></li>
+            <li><a class="contact-card" data-config="social.tiktok" data-name="TikTok" data-text data-card>
+              <span class="tile-icon"><svg class="lucide" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span>
+              <span><span class="contact-card__label">TikTok</span><span class="contact-card__value">Add your TikTok</span></span>
+            </a></li>
+          </ul>
+
+          <form class="form panel" id="contact-form" novalidate data-reveal>
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+              <p class="field__error" id="f-name-error"></p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+              <p class="field__error" id="f-email-error"></p>
+            </div>
+            <div class="field">
+              <label for="f-message">Message</label>
+              <textarea id="f-message" name="message" rows="5" placeholder="Tell me about the opportunity or project" required></textarea>
+              <p class="field__error" id="f-message-error"></p>
+            </div>
+            <!-- Hidden from people. Bots fill it in, and those submissions are ignored. -->
+            <input class="form__trap" name="botcheck" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn btn--primary btn--block" type="submit">
+              <i data-lucide="send" aria-hidden="true"></i><span class="btn__label">Send Message</span>
+            </button>
+            <p class="form__status" id="form-status" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div>
+        <a class="logo" href="#home">Jermaine<span>.</span></a>
+        <p class="footer__line">Computer Science Student at Biliran Province State University</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <ul class="socials" aria-label="Social media">
+        <li><a data-config="social.github" data-name="GitHub"><i data-lucide="github" aria-hidden="true"></i></a></li>
+        <li><a data-config="social.facebook" data-name="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a></li>
+        <li><a data-config="social.instagram" data-name="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a></li>
+        <li><a data-config="social.tiktok" data-name="TikTok"><svg class="lucide" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a></li>
+      </ul>
+    </div>
+    <div class="wrap footer__bottom">
+      <p>&copy; <span id="year">2026</span> Jermaine Mae C. Noquera. All rights reserved.</p>
+      <a class="to-top" href="#home"><i data-lucide="arrow-up" aria-hidden="true"></i>Back to top</a>
+    </div>
+  </footer>
+
+  <!-- ===== PROJECT DETAIL PAGES (open over the site) ===== -->
+  <div class="detail" id="detail" hidden data-lenis-prevent>
+    <div class="detail__bar">
+      <button class="btn btn--soft btn--small" type="button" data-close-detail><i data-lucide="arrow-left" aria-hidden="true"></i>Back to Projects</button>
+    </div>
+
+    <!-- EDIT: ReadSync details -->
+    <article class="detail__page wrap" id="detail-readsync" hidden aria-labelledby="detail-readsync-title">
+      <p class="eyebrow">Mobile Application</p>
+      <h2 id="detail-readsync-title">ReadSync</h2>
+      <p class="detail__lead">A Vosk-based mobile application for oral reading fluency and literacy comprehension assessment.</p>
+      <div class="detail__actions">
+        <a class="btn btn--primary btn--small" data-config="projects.readsync.github" data-name="View Code" data-text><i data-lucide="github" aria-hidden="true"></i>View Code</a>
+        <a class="btn btn--soft btn--small" data-config="projects.readsync.live" data-name="View Project" data-text><i data-lucide="external-link" aria-hidden="true"></i>View Project</a>
+      </div>
+      <div class="cover cover--phones cover--large">
+        <img src="assets/projects/readsync-welcome.webp" width="546" height="1053" alt="ReadSync welcome screen">
+        <img src="assets/projects/readsync-library.webp" width="546" height="1053" alt="ReadSync passage library">
+      </div>
+      <div class="detail__grid">
+        <section class="panel"><h3 class="mini-title"><i data-lucide="layers" aria-hidden="true"></i>Overview</h3><p>ReadSync is a companion for building stronger oral reading fluency and comprehension, one passage at a time. Learners read passages aloud, and the app assesses their reading using Vosk speech recognition.</p></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="circle-help" aria-hidden="true"></i>Problem</h3><p><span class="ph">The problem ReadSync solves</span></p></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="list-checks" aria-hidden="true"></i>Features</h3>
+          <ul class="bullets"><li>Oral reading fluency and literacy comprehension assessment</li><li>Library of reading passages in Filipino and English</li><li>Passages picked for the reader's grade level and language</li><li>Instant feedback on fluency</li><li>Final evaluation with accuracy, reading speed in words per minute and reading level</li><li>Reading profile, such as Independent or Frustration</li><li>Breakdown of reading miscues</li><li><span class="ph">Add more features</span></li></ul></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="cpu" aria-hidden="true"></i>Technology Stack</h3><ul class="tags"><li>Vosk</li><li class="ph">Add the rest</li></ul></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="git-branch" aria-hidden="true"></i>Development Process</h3><p><span class="ph">How you built it, step by step</span></p></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="triangle-alert" aria-hidden="true"></i>Challenges</h3><p><span class="ph">Challenges you faced and how you solved them</span></p></section>
+      </div>
+      <section class="detail__screens">
+        <h3 class="mini-title"><i data-lucide="images" aria-hidden="true"></i>Screens</h3>
+        <div class="gallery">
+          <figure><img src="assets/projects/readsync-welcome.webp" alt="ReadSync welcome screen" loading="lazy"><figcaption>Welcome screen</figcaption></figure>
+          <figure><img src="assets/projects/readsync-library.webp" alt="ReadSync passage library" loading="lazy"><figcaption>Passage library</figcaption></figure>
+        </div>
+      </section>
+    </article>
+
+    <!-- EDIT: Tubig Tracker details -->
+    <article class="detail__page wrap" id="detail-tubig" hidden aria-labelledby="detail-tubig-title">
+      <p class="eyebrow">Water Issue Reporting System</p>
+      <h2 id="detail-tubig-title">Tubig Tracker</h2>
+      <p class="detail__lead">A water issue reporting and monitoring system designed to help residents report water-related concerns.</p>
+      <div class="detail__actions">
+        <a class="btn btn--primary btn--small" data-config="projects.tubig.github" data-name="View Code" data-text><i data-lucide="github" aria-hidden="true"></i>View Code</a>
+        <a class="btn btn--soft btn--small" data-config="projects.tubig.live" data-name="View Project" data-text><i data-lucide="external-link" aria-hidden="true"></i>View Project</a>
+      </div>
+      <div class="cover cover--large"><img src="assets/projects/tubig-devices.webp" width="1080" height="430" alt="Tubig Tracker login screen on two laptops and a phone"></div>
+      <div class="detail__grid">
+        <section class="panel"><h3 class="mini-title"><i data-lucide="layers" aria-hidden="true"></i>Overview</h3><p>Its message to residents: your community's water matters. Tubig Tracker lets them report problems, share photos and stay updated with just a few clicks.</p></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="circle-help" aria-hidden="true"></i>Problem</h3><p><span class="ph">The problem Tubig Tracker solves</span></p></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="list-checks" aria-hidden="true"></i>Features</h3>
+          <ul class="bullets"><li>Easy registration and login</li><li>Issue reporting</li><li>Photo uploading</li><li>Location pinning</li><li>Admin updates</li><li>User-friendly interface</li></ul></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="cpu" aria-hidden="true"></i>Technology Stack</h3><ul class="tags"><li class="ph">Add technologies used</li></ul></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="git-branch" aria-hidden="true"></i>Development Process</h3><p><span class="ph">How you built it, step by step</span></p></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="triangle-alert" aria-hidden="true"></i>Challenges</h3><p><span class="ph">Challenges you faced and how you solved them</span></p></section>
+      </div>
+      <section class="detail__screens">
+        <h3 class="mini-title"><i data-lucide="images" aria-hidden="true"></i>Screens</h3>
+        <div class="gallery">
+          <figure><img src="assets/projects/tubig-login.webp" alt="Tubig Tracker login page" loading="lazy"><figcaption>Login page</figcaption></figure>
+          <figure><img src="assets/projects/tubig-poster.webp" alt="Tubig Tracker promotional poster listing its features" loading="lazy"><figcaption>Project poster</figcaption></figure>
+        </div>
+      </section>
+    </article>
+
+    <!-- EDIT: CareTrack Community details -->
+    <article class="detail__page wrap" id="detail-caretrack" hidden aria-labelledby="detail-caretrack-title">
+      <p class="eyebrow">Medication Tracking App</p>
+      <h2 id="detail-caretrack-title">CareTrack Community</h2>
+      <p class="detail__lead">A record-keeping app that helps patients track their medications, scheduled doses and adherence over time.</p>
+      <div class="detail__actions">
+        <a class="btn btn--primary btn--small" data-config="projects.caretrack.github" data-name="View Code" data-text><i data-lucide="github" aria-hidden="true"></i>View Code</a>
+        <a class="btn btn--soft btn--small" data-config="projects.caretrack.live" data-name="View Project" data-text><i data-lucide="external-link" aria-hidden="true"></i>View Project</a>
+      </div>
+      <div class="cover cover--top cover--large"><img src="assets/projects/caretrack-cover.webp" width="1440" height="900" alt="CareTrack Community dashboard"></div>
+      <div class="detail__grid">
+        <section class="panel"><h3 class="mini-title"><i data-lucide="layers" aria-hidden="true"></i>Overview</h3><p>Patients see today's doses, upcoming reminders and their recorded adherence on one dashboard. The demo account runs on generated sample data, not real patient information.</p></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="circle-help" aria-hidden="true"></i>Problem</h3><p><span class="ph">The problem CareTrack Community solves</span></p></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="list-checks" aria-hidden="true"></i>Features</h3>
+          <ul class="bullets"><li>Dashboard of active medications, doses taken, skipped or missed doses and recorded adherence</li><li>Daily dose schedule with a status for each dose</li><li>Upcoming reminders</li><li>Adherence trend chart for the last 14 days</li><li>Quick actions to add a medication or record a dose</li><li>Adherence history, medication tray, reports and notifications</li><li>Dark mode switch</li></ul></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="cpu" aria-hidden="true"></i>Technology Stack</h3><ul class="tags"><li class="ph">Add technologies used</li></ul></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="git-branch" aria-hidden="true"></i>Development Process</h3><p><span class="ph">How you built it, step by step</span></p></section>
+        <section class="panel"><h3 class="mini-title"><i data-lucide="triangle-alert" aria-hidden="true"></i>Challenges</h3><p><span class="ph">Challenges you faced and how you solved them</span></p></section>
+      </div>
+      <section class="detail__screens">
+        <h3 class="mini-title"><i data-lucide="images" aria-hidden="true"></i>Screens</h3>
+        <div class="gallery">
+          <figure><img src="assets/projects/caretrack-dashboard.webp" alt="Full CareTrack Community dashboard with sample data" loading="lazy"><figcaption>Dashboard with sample data</figcaption></figure>
+        </div>
+      </section>
+    </article>
+  </div>
+
+  <!-- ===== CERTIFICATE PREVIEW ===== -->
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+    <div class="lightbox__box">
+      <button class="icon-btn lightbox__close" type="button" data-close-lightbox aria-label="Close certificate"><i data-lucide="x" aria-hidden="true"></i></button>
+      <img class="lightbox__img" alt="">
+      <div class="lightbox__info">
+        <p class="cert__year"><i data-lucide="award" aria-hidden="true"></i><span class="lightbox__year"></span></p>
+        <h3 class="lightbox__title" id="lightbox-title"></h3>
+        <p class="cert__issuer lightbox__issuer"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/lucide.min.js" defer></script>
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/Flip.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="js/lanyard.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
